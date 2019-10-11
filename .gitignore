@@ -1,3 +1,6 @@
 .idea
 .vscode
-
+/ml/ml-1m
+/ml/weights.h5
+/ml/.gitignore
+/ml/__pycache__
