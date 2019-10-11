@@ -29,6 +29,7 @@
     "persisitent": false
   },
   "permissions": [
+    "https://api.themoviedb.org/*",
     "storage",
     "declarativeContent",
     "activeTab"
