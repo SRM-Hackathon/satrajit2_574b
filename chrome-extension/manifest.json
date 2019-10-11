@@ -1,0 +1,40 @@
+{
+  "manifest_version": 2,
+  "name": "MoodX",
+  "version": "1.0",
+  "browser_action": {
+    "default_icon": "movie-camera.png",
+    "default_title": "MoodX"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "jquery-3.4.1.min.js",
+        "content.js"
+      ],
+      "css": [
+        "styles.css"
+      ]
+    }
+  ],
+  "background": {
+    "scripts": [
+      "background.js",
+      "modal.js"
+    ],
+    "persisitent": false
+  },
+  "permissions": [
+    "storage",
+    "declarativeContent",
+    "activeTab"
+  ],
+  "web_accessible_resources": [
+    "modal.html",
+    "modal.js"
+  ]
+}
