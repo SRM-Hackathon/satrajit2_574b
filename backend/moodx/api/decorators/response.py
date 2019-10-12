@@ -67,6 +67,7 @@ def JsonResponseDecorator(view):
             response = view(*args, **kwargs)
         except Exception as e:
             response = exception_response(e)
+            print(e)
 
         response = regularize_response(response)
         return JsonResponse(response)
