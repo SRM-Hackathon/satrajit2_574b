@@ -23,7 +23,8 @@
   ],
   "background": {
     "scripts": [
-      "background.js"
+      "background.js",
+      "modal.js"
     ],
     "persisitent": false
   },
@@ -31,9 +32,14 @@
     "https://api.themoviedb.org/*",
     "storage",
     "declarativeContent",
-    "activeTab"
+    "activeTab",
+    "tabs",
+    "tabCapture"
   ],
   "web_accessible_resources": [
-    "modal.html"
-  ]
+    "modal.html",
+    "mood.html",
+    "modal.js"
+  ],
+  "content_security_policy": "script-src 'self' 'sha256-kuK1gLWiLgxqra6hJg078r+DJflmJ2WNEx6c2RJvH50='"
 }
