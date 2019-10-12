@@ -49,8 +49,8 @@ callbacks = [EarlyStopping('val_loss', patience=2),
              ModelCheckpoint('weights.h5', save_best_only=True)]
 
 # Use 30 epochs, 90% training data, 10% validation data
-history = model.fit([Users, Movies], Ratings, nb_epoch=30, validation_split=.1, callbacks=callbacks)
+# history = model.fit([Users, Movies], Ratings, nb_epoch=30, validation_split=.1, callbacks=callbacks)
 
 # Show the best validation RMSE
-min_val_loss, idx = min((val, idx) for (idx, val) in enumerate(history.history['val_loss']))
-print('Minimum RMSE at epoch', '{:d}'.format(idx + 1), '=', '{:.4f}'.format(math.sqrt(min_val_loss)))
+# min_val_loss, idx = min((val, idx) for (idx, val) in enumerate(history.history['val_loss']))
+# print('Minimum RMSE at epoch', '{:d}'.format(idx + 1), '=', '{:.4f}'.format(math.sqrt(min_val_loss)))
