@@ -4,6 +4,9 @@ from django.utils.decorators import method_decorator
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
 
+
+# from api.ml.mood import MoodPredictor
+from api.ml.recommender.inference import predict_movie
 from api.decorators.response import JsonResponseDecorator
 import base64
 import os
@@ -12,8 +15,10 @@ import time
 
 @method_decorator(JsonResponseDecorator, name='dispatch')
 class SuggestView(View):
+
+    # mood_predictor = MoodPredictor()
+
     def post(self, request):
-        print(request.POST)
         image = request.POST.get('image')
         image = str(image)[22:]
         image = base64.b64decode(image)
@@ -23,5 +28,9 @@ class SuggestView(View):
         with open(save_path, 'wb+') as f:
             f.write(image)
 
-        print(f'Received: {save_path}')
-        return {'message': f'Uploaded {save_path}'}
+        # print(f'Received: {save_path}')
+        # mood = self.mood_predictor.get_mood(save_path)
+        # print(f'MOOOOOOOOD: {mood}')
+        out = predict_movie(1)
+
+        return {'id': out}

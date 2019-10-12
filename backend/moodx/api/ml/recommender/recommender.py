@@ -4,7 +4,7 @@ import os
 import math
 import numpy as np
 import pandas as pd
-from CFModel import CFModel
+from api.ml.recommender.CFModel import CFModel
 import matplotlib.pyplot as plt
 from keras.callbacks import Callback, EarlyStopping, ModelCheckpoint
 
