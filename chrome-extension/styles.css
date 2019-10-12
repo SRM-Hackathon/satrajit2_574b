@@ -16,6 +16,7 @@
 }
 
 .movie_card {
+  max-width: 50vw;
   position: relative;
   display: block;
   margin: 20px;
@@ -47,9 +48,11 @@
 .movie_card>.info_section .movie_header {
   position: relative;
   padding: 25px;
+  padding-bottom: 0px;
 }
 
 .movie_card>.info_section .movie_header h1 {
+  font-size: 2rem;
   color: black;
   font-weight: 400;
 }
@@ -84,6 +87,8 @@
 
 .movie_card>.info_section .movie_desc {
   padding: 25px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .movie_card>.info_section .movie_desc .text {

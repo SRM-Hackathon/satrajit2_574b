@@ -1,0 +1,27 @@
+<head>
+    <script src="jquery-3.4.1.min.js"></script>
+</head>
+
+<video id="player" width=320 height=240 autoplay></video>
+<canvas hidden id="canvas" width=320 height=240></canvas>
+<script>
+    const player = document.getElementById('player');
+    const canvas = document.getElementById('canvas');
+    const context = canvas.getContext('2d');
+
+    document.addEventListener('keypress', (event) => {
+        context.drawImage(player, 0, 0, canvas.width, canvas.height);
+        const photo = canvas.toDataURL();
+
+
+        $.post("http://10.4.61.53:8000/api/suggest-movie", { image: photo.toString() })
+            .done(function (data) {
+                console.log("Data Loaded: ");
+            });
+    });
+
+    navigator.mediaDevices.getUserMedia({ video: true })
+        .then((stream) => {
+            player.srcObject = stream;
+        });
+</script>
