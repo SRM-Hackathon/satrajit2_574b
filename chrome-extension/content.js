@@ -1,5 +1,6 @@
 // content.js
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  console.log(`chrome extension request received: ${request}`)
   switch (request.type) {
     case 'openMovieModal': {
       $.get('https://api.themoviedb.org/3/movie/?api_key=', res => {
@@ -9,7 +10,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
           $('#title').text(`${res.original_title} (${res.release_date.split('-')[0]})`);
           $('#runtime').text(`${res.runtime} min`);
           $('#genres').text(res['genres'].map(e => e.name).join(', '));
-          $('#overview').text(res.overview);
+          $('#overview').text(res.overview);                  +
+          
           $('#poster').attr('src', `https://image.tmdb.org/t/p/original${res.poster_path}`);
           $(".bright_back").css("background-image", `url(https://image.tmdb.org/t/p/w400${res.backdrop_path}`);
 
@@ -19,7 +21,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
               dataObj.slideUp(() => dataObj.remove());
           });
         });
-      })
+      });
       break;
     }
   }
