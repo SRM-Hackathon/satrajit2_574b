@@ -23,8 +23,7 @@
   ],
   "background": {
     "scripts": [
-      "background.js",
-      "modal.js"
+      "background.js"
     ],
     "persisitent": false
   },
@@ -35,7 +34,6 @@
     "activeTab"
   ],
   "web_accessible_resources": [
-    "modal.html",
-    "modal.js"
+    "modal.html"
   ]
 }
